@@ -8,6 +8,7 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 import org.javabot.Core.CommandListener;
 import org.javabot.Listeners.ReadyListener;
+import org.javabot.Utils.Util;
 
 public class DiscordBot extends ListenerAdapter {
 
@@ -15,7 +16,7 @@ public class DiscordBot extends ListenerAdapter {
 
         final String TOKEN = "MTA4MjY4MjMyMTE3NTU4ODkzNQ.Grc0rT.r7XcpnYoxbUsffo0ImS2FilO0V7WYZypp7GuYY";
 
-        JDA jdaBuilder = JDABuilder.createDefault(TOKEN, GatewayIntent.GUILD_MESSAGES, GatewayIntent.MESSAGE_CONTENT, GatewayIntent.GUILD_MEMBERS)
+        JDA jdaBuilder = JDABuilder.createDefault(Util.getToken(), GatewayIntent.GUILD_MESSAGES, GatewayIntent.MESSAGE_CONTENT, GatewayIntent.GUILD_MEMBERS)
                 .addEventListeners(
                         new ReadyListener(),
                         new CommandListener()
