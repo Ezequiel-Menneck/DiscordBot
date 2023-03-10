@@ -1,10 +1,10 @@
-package org.javabot.Core;
+package org.DiscordBot.Core;
 
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.events.session.ReadyEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.interactions.commands.build.Commands;
-import org.javabot.Commands.FriendsCommands;
+import org.DiscordBot.Commands.FriendsCommands;
 import org.jetbrains.annotations.NotNull;
 
 public class CommandListener extends ListenerAdapter {

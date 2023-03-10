@@ -1,4 +1,4 @@
-package org.javabot.Utils;
+package org.DiscordBot.Utils;
 
 import java.io.FileInputStream;
 import java.util.Properties;

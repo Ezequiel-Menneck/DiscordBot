@@ -1,4 +1,4 @@
-package org.javabot.Commands;
+package org.DiscordBot.Commands;
 
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 

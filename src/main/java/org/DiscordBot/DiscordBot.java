@@ -1,13 +1,13 @@
-package org.javabot;
+package org.DiscordBot;
 
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.requests.GatewayIntent;
-import org.javabot.Core.CommandListener;
-import org.javabot.Listeners.ReadyListener;
-import org.javabot.Utils.Util;
+import org.DiscordBot.Core.CommandListener;
+import org.DiscordBot.Listeners.ReadyListener;
+import org.DiscordBot.Utils.Util;
 
 public class DiscordBot {
 
