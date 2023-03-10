@@ -14,9 +14,7 @@ public class DiscordBot extends ListenerAdapter {
 
     public static void main(String[] args) {
 
-        final String TOKEN = "MTA4MjY4MjMyMTE3NTU4ODkzNQ.Grc0rT.r7XcpnYoxbUsffo0ImS2FilO0V7WYZypp7GuYY";
-
-        JDA jdaBuilder = JDABuilder.createDefault(Util.getToken(), GatewayIntent.GUILD_MESSAGES, GatewayIntent.MESSAGE_CONTENT, GatewayIntent.GUILD_MEMBERS)
+        JDA jdaBuilder = JDABuilder.createDefault(Util.get("token"), GatewayIntent.GUILD_MESSAGES, GatewayIntent.MESSAGE_CONTENT, GatewayIntent.GUILD_MEMBERS)
                 .addEventListeners(
                         new ReadyListener(),
                         new CommandListener()
