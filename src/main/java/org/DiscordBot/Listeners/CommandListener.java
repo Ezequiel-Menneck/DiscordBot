@@ -7,6 +7,7 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.interactions.commands.OptionType;
 import net.dv8tion.jda.api.interactions.commands.build.Commands;
 import org.DiscordBot.Commands.FriendsCommands;
+import org.DiscordBot.Utils.Util;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
@@ -26,7 +27,8 @@ public class CommandListener extends ListenerAdapter {
                         Commands.slash("hacker", "Hackeado?"),
                         Commands.slash("play", "Escreva a música desejada")
                                 .addOption(OptionType.STRING, "musica", "Música que o bot ira tocar", true),
-                        Commands.slash("skip", "Skipa a música")
+                        Commands.slash("skip", "Skipa a música"),
+                        Commands.slash("gejota", "Porra Gejota")
                 ).queue();
     }
 
@@ -43,6 +45,7 @@ public class CommandListener extends ListenerAdapter {
             case "play" ->
                     musicListener.loadAndPlay((TextChannel) event.getChannel(), Objects.requireNonNull(event.getOption("musica")).getAsString());
             case "skip" -> musicListener.skipTrack((TextChannel) event.getChannel());
+            case "gejota" -> musicListener.loadAndPlay((TextChannel) event.getChannel(), Util.get("porragejota"));
         }
     }
 

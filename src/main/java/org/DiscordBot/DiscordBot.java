@@ -18,7 +18,7 @@ public class DiscordBot {
                         new ReadyListener(),
                         new CommandListener()
                 )
-                .setActivity(Activity.watching("Escutando um Sãum"))
+                .setActivity(Activity.listening("um sãum"))
                 .setStatus(OnlineStatus.DO_NOT_DISTURB)
                 .build();
     }

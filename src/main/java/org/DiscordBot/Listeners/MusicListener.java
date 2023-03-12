@@ -10,14 +10,13 @@ import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import net.dv8tion.jda.api.entities.channel.concrete.VoiceChannel;
-import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.managers.AudioManager;
 import org.DiscordBot.Core.GuildMusicManager;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class MusicListener extends ListenerAdapter {
+public class MusicListener {
 
     private final AudioPlayerManager playerManager;
     private final Map<Long, GuildMusicManager> musicManagers;
@@ -35,7 +34,7 @@ public class MusicListener extends ListenerAdapter {
         GuildMusicManager musicManager = musicManagers.get(guildId);
 
         if (musicManager == null) {
-            musicManager = new GuildMusicManager(playerManager);
+            musicManager = new GuildMusicManager(playerManager, guild);
             musicManagers.put(guildId, musicManager);
         }
 
@@ -50,7 +49,7 @@ public class MusicListener extends ListenerAdapter {
         playerManager.loadItemOrdered(musicManager, trackUrl, new AudioLoadResultHandler() {
             @Override
             public void trackLoaded(AudioTrack audioTrack) {
-                channel.sendMessage("Adding to queue " + audioTrack.getInfo().title).queue();
+                channel.sendMessage("Adding to queue: " + audioTrack.getInfo().title).queue();
 
                 play(channel.getGuild(), musicManager, audioTrack);
             }
