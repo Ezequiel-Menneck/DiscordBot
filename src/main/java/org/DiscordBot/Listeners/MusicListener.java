@@ -10,13 +10,15 @@ import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import net.dv8tion.jda.api.entities.channel.concrete.VoiceChannel;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.managers.AudioManager;
 import org.DiscordBot.Core.GuildMusicManager;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class MusicListener {
+public class MusicListener extends ListenerAdapter {
 
     private final AudioPlayerManager playerManager;
     private final Map<Long, GuildMusicManager> musicManagers;
@@ -41,6 +43,17 @@ public class MusicListener {
         guild.getAudioManager().setSendingHandler(musicManager.getSendHandler());
 
         return musicManager;
+    }
+
+    @Override
+    public void onMessageReceived(MessageReceivedEvent event) {
+        String[] command = event.getMessage().getContentRaw().split(" ", 2);
+
+        if ("?play".equals(command[0]) && command.length == 2) {
+            loadAndPlay((TextChannel) event.getChannel(), command[1]);
+        } else if ("?skip".equals(command[0])) {
+            skipTrack((TextChannel) event.getChannel());
+        }
     }
 
     public void loadAndPlay(final TextChannel channel, final String trackUrl) {
