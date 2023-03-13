@@ -4,12 +4,12 @@ import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEve
 import net.dv8tion.jda.api.events.session.ReadyEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.interactions.commands.build.Commands;
-import org.DiscordBot.Commands.FriendsCommands;
+import org.DiscordBot.Commands.BasicCommands;
 import org.jetbrains.annotations.NotNull;
 
 public class CommandListener extends ListenerAdapter {
 
-    FriendsCommands friendsCommands = new FriendsCommands();
+    BasicCommands basicCommands = new BasicCommands();
 
     @Override
     public void onReady(@NotNull ReadyEvent event) {
@@ -18,7 +18,8 @@ public class CommandListener extends ListenerAdapter {
                 .addCommands(
                         Commands.slash("vini", "Surpresa"),
                         Commands.slash("mauro", "Surpresa"),
-                        Commands.slash("hacker", "Hackeado?")
+                        Commands.slash("hacker", "Hackeado?"),
+                        Commands.slash("help", "Lista de comandos será exibida")
                 ).queue();
     }
 
@@ -29,9 +30,10 @@ public class CommandListener extends ListenerAdapter {
         }
 
         switch (event.getName()) {
-            case "vini" -> friendsCommands.vini(event);
-            case "mauro" -> friendsCommands.mauro(event);
-            case "hacker" -> friendsCommands.hacker(event);
+            case "vini" -> basicCommands.vini(event);
+            case "mauro" -> basicCommands.mauro(event);
+            case "hacker" -> basicCommands.hacker(event);
+            case "help" -> basicCommands.help(event);
         }
     }
 

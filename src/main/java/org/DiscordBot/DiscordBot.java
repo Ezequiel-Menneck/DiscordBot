@@ -22,7 +22,7 @@ public class DiscordBot {
                         new MusicListener(),
                         new AudioCommands()
                 )
-                .setActivity(Activity.listening("um sãum"))
+                .setActivity(Activity.playing("/help for help"))
                 .setStatus(OnlineStatus.DO_NOT_DISTURB)
                 .build();
     }
