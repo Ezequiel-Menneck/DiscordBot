@@ -5,6 +5,7 @@ import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.requests.GatewayIntent;
+import org.DiscordBot.Commands.AudioCommands;
 import org.DiscordBot.Listeners.CommandListener;
 import org.DiscordBot.Listeners.MusicListener;
 import org.DiscordBot.Listeners.ReadyListener;
@@ -18,7 +19,8 @@ public class DiscordBot {
                 .addEventListeners(
                         new ReadyListener(),
                         new CommandListener(),
-                        new MusicListener()
+                        new MusicListener(),
+                        new AudioCommands()
                 )
                 .setActivity(Activity.listening("um sãum"))
                 .setStatus(OnlineStatus.DO_NOT_DISTURB)
